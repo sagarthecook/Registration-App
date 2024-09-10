@@ -1,0 +1,86 @@
+
+<div class="container">
+  <br>
+  <div *ngIf="isSavePopupEnabled">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+       Congrats...Your registration completed successfully...
+      <button type="button" class="close" data-dismiss="alert"  (click)="onCloseClick()" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="card-header">
+   <h2>Sign Up</h2>
+  </div>
+  <br>
+  <div class="card-body">
+    <form class="form" (ngSubmit)='submitData()' [formGroup]='resForm' id="resForm">
+      <div class="row">
+        <div class="col-6">
+          <label>First Name</label>
+          <input formControlName='firstName'  id = "firstName" type="text" class="form-control" placeholder="Enter First Name" />
+          <div class="alert alert-danger"
+            *ngIf="resForm.get('firstName').hasError('required') && resForm.get('firstName').touched">
+            First Name is required
+          </div>
+        </div>
+        <div class="col-6">
+          <label>Last Name</label>
+      <input formControlName='lastName' type="text" class="form-control" placeholder="Enter Last Name" />
+      <div class="alert alert-danger"
+        *ngIf="resForm.get('lastName').hasError('required') && resForm.get('lastName').touched">
+        Last Name is required
+      </div>
+        </div>
+      </div>  
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label>Email</label>
+          <input formControlName='email' type="text" class="form-control" placeholder="Enter Email" />
+          <div class="alert alert-danger"
+            *ngIf="resForm.get('email').hasError('required') && resForm.get('email').touched">
+            Email is required
+          </div>
+        </div>
+        <div class ="col-6">
+          <label>Age</label>
+          <input formControlName='age' type="number" class="form-control" placeholder="Enter age" />
+          <div class="alert alert-danger"
+            *ngIf="resForm.get('age').hasError('required') && resForm.get('age').touched">
+            Age is required
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-6">
+          <label>Please select gender</label>
+     
+          <select class="form-select" formControlName="gender">
+            <option *ngFor="let i of genders"> {{i.name}}</option>
+          </select>
+        </div>
+      </div>
+   
+    </form>
+    <div class="card-footer">
+      <br>
+      <div class="row">
+        <div class="col-sm-10">
+          
+        </div>
+        <div class="col-sm-2">
+          <button [disabled]='resForm.invalid' class="btn btn-primary" (click)="submitData()">Submit</button>
+          <!-- <button class="btn btn-secondary" (click)="onCancelClick()">Cancel</button> -->
+        </div>
+      </div>
+    </div>
+
+  
+</div>
+</div>
+
+
+
