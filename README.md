@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/2aeac60f-45da-49da-ac8a-b07a1ee1ff13)
+
 # RegistrationApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
